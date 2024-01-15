@@ -8,5 +8,4 @@ void main() {
   ulasMoney = ulasMoney ~/ 20;
 
   print("Merhaba $userName $ulasMoney");
-  //
 }

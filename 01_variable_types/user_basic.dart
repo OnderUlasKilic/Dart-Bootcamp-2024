@@ -6,7 +6,7 @@ void main() {
   // ya acaba 10 yapabilirmiyiz
 
   print("Merhaba" + '${25 + 5}');
-
+//
   int userMoney = 25;
   String usereName = "Berkay";
   userMoney = userMoney + 5;
