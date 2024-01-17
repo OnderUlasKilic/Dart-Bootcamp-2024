@@ -48,11 +48,11 @@ void main() {
   // magaza  isimleri sadece karakter uzunlugu iki veya daha alti olarları görmek istiyor
   // bu kola uyanlari yan yana görmek istiyoruum aralarında bosluk olacak
 
-  String ahmetCompany = "Ahmet";
-  String mehmetCompany = "Mehmet";
-  String veliCompany = "Veli";
-  String kxCompany = "kx";
-  String xCompany = "x";
+  final String ahmetCompany = "Ahmet";
+  final String mehmetCompany = "Mehmet";
+  final String veliCompany = "Veli";
+  final String kxCompany = "kx";
+  final String xCompany = "x";
 
   String results = "";
   const int companyLenght = 2;
@@ -74,7 +74,8 @@ void main() {
   }
   print(results);
 
-  if (results.length == 0) {
+  if (results.isEmpty) {
+    //if (results.length == 0) {
     print("patron bulamadık");
   } else {
     print(results);
