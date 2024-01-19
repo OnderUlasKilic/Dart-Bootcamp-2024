@@ -77,4 +77,23 @@ void main() {
       print("bye");
     }
   }
+  print("aaaa");
+  List<dynamic> users = [1, "a", true];
+
+  for (var item in users) {
+    print(item);
+  }
+
+  List<String> userNames = ["ali", "mehmet", "ayşe"];
+
+  userNames.contains("veli");
+
+  for (var item in userNames) {
+    if (item == "veli") {
+      print("var");
+    } else {
+      print("yok");
+    }
+    ;
+  }
 }

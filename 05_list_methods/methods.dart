@@ -18,6 +18,24 @@ void main() {
   // } else {
   //   print("parası yok");
   // }
+
+  // ya dedi acaba 0 değilde en azindan bi 5tl si olsun
+
+  // yeni müşteri gelir paraso 50 tl
+  // pasasini dolar yapmak istiyor ve kaç dolar yaptigini merak ediyor
+
+  final newUserMoney = 50;
+
+  print(newUserMoney / 30);
+
+  int result = convertToDolar(newUserMoney);
+
+  print(result);
+  if (result > 0) {}
+  // bana dolar hesaplama yap eger ben sana söylemezsem yeni bir durum var diye her zaman 30 al
+
+  final newResult = converToStandartDolar(100, dolarIndex: 30);
+  final newResult2 = converToEuro(userMoney: 100);
 }
 
 void controlUserMoney(int money, int minumumValue) {
@@ -26,4 +44,16 @@ void controlUserMoney(int money, int minumumValue) {
   } else {
     print("para yok");
   }
+}
+
+int convertToDolar(int userMoney) {
+  return userMoney ~/ 30;
+}
+
+int converToStandartDolar(int userMoney, {int dolarIndex = 30}) {
+  return userMoney ~/ dolarIndex;
+}
+
+int converToEuro({required int userMoney, int dolarIndex = 30}) {
+  return userMoney ~/ dolarIndex;
 }
