@@ -51,6 +51,19 @@ void main() {
 
   List<int?> customerMoneys = [100, null, 0];
 
+  if (customerMoneys[0] != null) {
+    // Eger null ise ekrana hic birsey yazmayacak.
+    print(customerMoneys[0]! + 2);
+  } else {
+    print('Deger null');
+  }
+
+  print(customerMoneys[0] != null
+      ? customerMoneys[0]! + 2
+      : 'Deger null'); // Bu kod line 54 ve 59 arasindaki kod ile birebir ayni isi yapiyor.
+
+  print((customerMoneys[0] ?? 0) + 2); // Ekrana 2 yazacak.
+
   for (var item in customerMoneys) {
     if (item != null) {
       if (item > 0) {
@@ -67,9 +80,10 @@ void main() {
     print(result);
   }
 
-  print("----------------" * 3);
+  print("\n");
 
   int customerMoneyX = 15;
+
   User user1 = User("vb", 15, age: 21, city: "aaa", id: '123');
 
   //User user2 = User("vb", 15, null, null);

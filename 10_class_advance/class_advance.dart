@@ -44,6 +44,19 @@ void main() {
   // benim bankama gelen müsterimin idsi aynı olanlar aynı müsteri olmalidir
   print(moneyBank1.toString());
   print(moneyBank1 == moneyBank2);
+
+  // diğer bankadan bir modül aldık bunu ekleyip müsterinin parasini sorgularmisin
+
+  // müsteri adamın parasına 10tl ekle ekrana dondür, adaın idsini 1 artır sonrasında ismini "veli" yap
+
+  moneyBank1.money += 10;
+  print(moneyBank1.money);
+
+  moneyBank1
+    ..money += 10
+    ..name = "veli";
+
+  print(moneyBank1);
 }
 
 class _User {
@@ -65,14 +78,19 @@ class _User {
   // burdaki sorun ise ilk soruya hangisini cevap olarak verirse geri kalanındada o seceneği kullancaktır
 }
 
-class Bank {
-  final int money;
+class Bank with BankMixin {
+  int money;
   final String id;
+  String? name;
 
   Bank(this.money, this.id);
 
   int operator +(Bank newBank) {
     return this.money + newBank.money;
+  }
+
+  void updateName(String name) {
+    this.name = name;
   }
 
   @override
@@ -83,5 +101,18 @@ class Bank {
 
   bool operator ==(Object object) {
     return object is Bank && object.id == id;
+  }
+
+  @override
+  void sayBankHello() {
+    calculateMoney(money);
+  }
+}
+
+mixin BankMixin {
+  void sayBankHello();
+
+  void calculateMoney(int money) {
+    print("money");
   }
 }

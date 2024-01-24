@@ -7,24 +7,28 @@
 
 class User {
 // özellikleri neler
+  final String _id;
+  final String name;
+  final String userCode;
+  final int money;
+  final int? age;
+  final String? city;
 
-  late final String name;
-  late int money;
-  late final int? age;
-  late final String? city;
+  User(this.name, this.money, {this.age, this.city, required String id})
+      : _id = id,
+        userCode = (city ?? "istanbul") + " " + name;
 
-  late final String userCode;
+  // orta iyi -> (city == null ? "istanbul" : city) + " " + name;
 
-  late final String _id;
+  // User(String name, int money, {required String id, int? age, String? city}) {
+  //   this.name = name;
+  //   this.money = money;
+  //   this.age = age;
+  //   this.city = city;
+  //   _id = id;
+  //   userCode = (city ?? "istanbul") + " " + name;
+  // }
 
-  User(String name, int money, {required String id, int? age, String? city}) {
-    this.name = name;
-    this.money = money;
-    this.age = age;
-    this.city = city;
-    _id = id;
-    userCode = (city ?? "istanbul") + " " + name;
-  }
   bool isSpecialUser(String id) {
     return _id == id;
   }
