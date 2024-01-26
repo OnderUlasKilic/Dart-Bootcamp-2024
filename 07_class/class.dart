@@ -9,7 +9,7 @@ void main() {
   final int customerMoney = 50;
   final String customerName = "veli";
   final int customerAge = 13;
-  final String customerCity = "Ardahan";
+  final String customerCity = "han";
 
   // bu müsterimin yasi 10 dan büyükse bir işlem yapalim
 

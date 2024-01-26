@@ -10,7 +10,7 @@ class User {
   final String _id;
   final String name;
   final String userCode;
-  final int money;
+  int money;
   final int? age;
   final String? city;
 
