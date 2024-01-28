@@ -1,3 +1,5 @@
+import '../11_class_singleton/class_singleton.dart';
+
 void main(List<String> args) {
   final model = CarModel(
       category: CarModels.bmw,
@@ -61,13 +63,42 @@ void main(List<String> args) {
 
   final index = carItems.indexOf(newCar);
   print(index);
+  final _mercedes =
+      CarModel(category: CarModels.mercedes, name: "mercedes M5", money: 66);
+  carItems.add(_mercedes);
 
-  carItems.add(
-      CarModel(category: CarModels.mercedes, name: "mercedes M5", money: 66));
+  carItems.sort((first, second) => second.money.compareTo(first.money));
 
-  carItems.sort((first, second) => first.money.compareTo(second.money));
+  final users = carItems.expand((element) => element.users).toList();
 
+  calculateToUser(carItems);
+
+  carItems.remove(_mercedes);
+  carItems.removeWhere(
+      (element) => element.category == CarModels.bmw || element.money < 30);
   print(carItems);
+}
+
+void calculateToUser(List<CarModel> items) {
+  // itemleri düzelt bmw olanları yamaha yap(category)
+
+  final _items = [...items.toList()];
+  final newItem = _items.map((CarModel e) {
+    // if (e.category == CarModels.bmw) {
+    //   e.category = CarModels.yamaha;
+    // }
+    // if (e.isSecondHand) {
+    //   e.isSecondHand = false;
+    // }
+    // return e;
+    return CarModel(
+        category: e.category == CarModels.bmw ? CarModels.yamaha : e.category,
+        name: e.name,
+        money: e.money,
+        isSecondHand: false);
+  }).toList();
+
+  print(newItem);
 }
 
 // benim bir arabalar sinifim olacak
@@ -91,10 +122,17 @@ void main(List<String> args) {
 
 // bana arabalarımı kücükten büyüge dogru sıralarmısın
 
+// ben bütün arabalarimi user yapıcam
+
+// ya bu son ekleneni silelim
+// bmw olan ve 30 dan düşük olanları silelim
+
 class CarModel {
-  final CarModels category;
+  CarModels category;
   final String name;
   final double money;
+
+  List<User> users;
   String? city;
   bool isSecondHand;
 
@@ -103,7 +141,8 @@ class CarModel {
       required this.name,
       required this.money,
       this.city,
-      this.isSecondHand = true});
+      this.isSecondHand = true,
+      this.users = const []});
 
   @override
   bool operator ==(Object other) {
